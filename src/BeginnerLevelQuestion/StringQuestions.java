@@ -1,5 +1,8 @@
+package BeginnerLevelQuestion;
+
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StringQuestions {
     public static void main(String[] args){
@@ -8,7 +11,8 @@ public class StringQuestions {
 //      Convert all names to uppercase.
         List<String> names = Arrays.asList(
                 "Rishabh", "Amit", "Rahul", "Ankit",
-                "Nela", "Jiya", "Aman", "Rohit", "ansi"
+                "Nela", "Jiya", "Aman", "Rohit", "ansi",
+                "Ankit", "Rishabh"
         );
 
         List<String> upperCaseName = names.stream()
@@ -43,5 +47,30 @@ public class StringQuestions {
                 .sorted()
                 .toList();
         System.out.println(sortAlphabetically);
+
+//        Remove duplicate names.
+        List<String> removeDuplicate = names.stream()
+                .distinct()
+                .toList();
+        System.out.println(removeDuplicate);
+
+
+//        Count names starting with "R".
+        long countStartWithR = names.stream()
+                .filter(e->e.toUpperCase().startsWith("R"))
+                .count();
+
+        System.out.println(countStartWithR);
+
+
+//        Join all names into a single String separated by commas.
+        String joinNames = names.stream()
+                .collect(Collectors.joining(","));
+
+        System.out.println(joinNames);
+
+
+
+
     }
 }
